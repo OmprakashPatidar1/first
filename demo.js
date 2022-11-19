@@ -1,7 +1,11 @@
 var header = document.getElementById('main-header');
 header.style.borderBottom='solid 3px #000';
 
-
-var items=document.getElementById('items');
-   items.style.fontWeight='bold';
-   items.style.color='green'
+var header = document.getElementById('title');
+header.style.fontWeight='bold';
+header.style.color='green'
+var items=document.getElementsByClassName('list-group-item');
+   items[2].style.backgroundColor='green'
+  for(let i=0;i<items.length;i++){
+      items[i].style.fontWeight='bold'
+    }
