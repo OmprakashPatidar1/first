@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="saveToCrudCrud(event)">
+        <h1>Appointment Booking App</h1>
+        <label for="username">Name</label>
+        <input type="text" id="username" required>
+        <label for="emailId">Email Id</label>
+        <input type="email" id="emailId"  required>
+        <label for="phone">Phone No</label>
+        <input type="number" id="phone">
+        <button>Submit</button>
+    </form>
+    <ul id="listOfUser"></ul>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function saveToCrudCrud(event){
+            event.preventDefault();
+            const name=event.target.username.value;
+            const email=event.target.emailId.value;
+            const phone=event.target.phone.value;
+            const obj={
+                name,
+                email,
+                phone
+            }
+            axios.post("https://crudcrud.com/api/7d3ebb195a144050a65b85d577ce4a75/data",obj)
+            .then((response)=>{
+                console.log(response)
+            })
+            .catch(err=>console.log(err))
+            showNewUserOnScreen(obj)
+        }
+      function showNewUserOnScreen(user){
+        document.getElementById('emailId').value;
+        document.getElementById('username').value;
+        document.getElementById('phone').value;
+        const parentNode=document.getElementById('listOfUser');
+        const childHTML=`${user.name}-${user.email}-${user.phone}`
+            parentNode.innerHTML=parentNode.innerHTML+childHTML;
+      }
+
+
+
+    </script>
+</body>
+</html>
+
+
+
+
